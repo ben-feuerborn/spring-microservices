@@ -29,5 +29,4 @@ public class LicenseServiceApplication {
 		messageSource.setBasenames("messages");
 		return messageSource;
 	}
-
 }

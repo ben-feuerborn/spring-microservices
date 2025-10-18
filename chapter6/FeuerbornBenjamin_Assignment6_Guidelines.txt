@@ -1,0 +1,16 @@
+Starting up application:
+1. Package Application:
+```
+mvn clean package dockerfile:build -DskipTests
+```
+
+2. Start Images:
+```
+docker compose -f docker/docker-compose.yml up
+```
+
+
+Cleanly shut down application:
+```
+docker compose -f docker/docker-compose.yml down -v
+```

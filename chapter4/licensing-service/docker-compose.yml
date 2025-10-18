@@ -1,9 +1,28 @@
-version: '3'
-
 services:
   licensingservice:
     image: ostock/licensing-service:0.0.1-SNAPSHOT
     ports:
       - "8080:8080"
     environment:
-       - "SPRING_PROFILES_ACTIVE=dev"
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/licensingdb
+      SPRING_DATASOURCE_USERNAME: licensinguser
+      SPRING_DATASOURCE_PASSWORD: licensingpass
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16.10
+    container_name: postgres
+    # don't need to explicitly map the port, will let docker handle it internally
+    #ports:
+    #  - "5432:5432"
+    environment:
+      POSTGRES_DB: licensingdb
+      POSTGRES_USER: licensinguser
+      POSTGRES_PASSWORD: licensingpass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

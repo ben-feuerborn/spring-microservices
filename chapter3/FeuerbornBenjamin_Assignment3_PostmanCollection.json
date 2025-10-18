@@ -1,0 +1,431 @@
+{
+	"info": {
+		"_postman_id": "e69d215b-29e6-4f1f-8e42-0cf71ce7f356",
+		"name": "Module 3 Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43879275"
+	},
+	"item": [
+		{
+			"name": "GET-EN",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license/0235431845",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license",
+						"0235431845"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-ES",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "es",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license/0235431845",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license",
+						"0235431845"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-DE",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "de",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license/0235431845",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license",
+						"0235431845"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE-EN",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license/0235431845",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license",
+						"0235431845"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE-ES",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "es",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license/0235431845",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license",
+						"0235431845"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE-DE",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "de",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license/0235431845",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license",
+						"0235431845"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST-EN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"licenseId\":\"0235431845\",\n    \"description\":\"Software product\",\n    \"organizationId\":\"optimaGrowth\",\n    \"productName\":\"0stock\",\n    \"licenseType\":\"complete\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST-ES",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "es",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"licenseId\":\"0235431845\",\n    \"description\":\"Software product\",\n    \"organizationId\":\"optimaGrowth\",\n    \"productName\":\"0stock\",\n    \"licenseType\":\"complete\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST-DE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "de",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"licenseId\":\"0235431845\",\n    \"description\":\"Software product\",\n    \"organizationId\":\"optimaGrowth\",\n    \"productName\":\"0stock\",\n    \"licenseType\":\"complete\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT-EN",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"licenseId\":\"0235431845\",\n    \"description\":\"Software product\",\n    \"organizationId\":\"optimaGrowth\",\n    \"productName\":\"0stock\",\n    \"licenseType\":\"complete\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT-ES",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "es",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"licenseId\":\"0235431845\",\n    \"description\":\"Software product\",\n    \"organizationId\":\"optimaGrowth\",\n    \"productName\":\"0stock\",\n    \"licenseType\":\"complete\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT-DE",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "de",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"licenseId\":\"0235431845\",\n    \"description\":\"Software product\",\n    \"organizationId\":\"optimaGrowth\",\n    \"productName\":\"0stock\",\n    \"licenseType\":\"complete\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

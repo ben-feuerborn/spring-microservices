@@ -2,7 +2,11 @@ spring:
     application:
      name: licensing-service 
     profiles:
-      active: dev
-    cloud:
-        config: 
-            uri: http://configserver:8071
+      active: test
+    config: 
+      import: optional:configserver:http://configserver:8089
+
+management:
+  metrics:
+    enable:
+      all: false

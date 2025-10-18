@@ -26,6 +26,21 @@ public class Application {
 		return String.format("{\"message\":\"Hello %s %s\"}",firstName, lastName);
 	}
 	
+	// Add two more GET endpoints to enhance your program. Use the following two GET endpoints:
+	// GET 'hello/ping' - This endpoint should return one string ‘pong’ as the response.
+	@GetMapping(value="/ping")
+	public String helloPingGet() {
+		return String.format("{\"message\":\"pong\"}");
+	}
+
+	// GET ‘hello/ping?name=health’ - This endpoint should return a string ‘pong health’ as the response.
+	@GetMapping(value="/ping", params="name")
+	public String helloPingNameGET(
+		@RequestParam("name") String name
+	) {
+		return String.format("{\"message\":\"pong %s\"}", name);
+	}
+
 	@PostMapping
 	public String helloPOST( @RequestBody HelloRequest request) {
 		return String.format("{\"message\":\"Hello %s %s\"}",request.getFirstName(), request.getLastName());

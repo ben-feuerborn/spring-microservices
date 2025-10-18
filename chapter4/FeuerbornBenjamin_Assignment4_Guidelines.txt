@@ -1,0 +1,17 @@
+Starting Application:
+1. Open a terminal in the root directory of the project and run the following:
+```
+mvn clean package -DskipTests
+docker build -t ostock/licensing-service:0.0.1-SNAPSHOT .
+docker compose up --build
+```
+
+
+Connecting to the database:
+1. With program running, open up another terminal and run `docker exec -it postgres psql -U licensinguser -d licensingdb`.
+2. Use SQL statements to query from the `licenses` table in the licensing database.
+
+
+Using the requests:
+1. Import the attached JSON file "FeuerbornBenjamin_Assignment4_PostmanCollection.json" to POSTMAN.
+2. Click the run button to run the selected request.

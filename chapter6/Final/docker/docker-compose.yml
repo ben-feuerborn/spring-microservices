@@ -3,7 +3,7 @@ services:
   database:
     image: postgres:latest
     ports:
-      - "5432:5432"
+      - "5434:5432"
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
@@ -30,10 +30,28 @@ services:
       backend:
         aliases:
           - "configserver"
-  eurekaserver:
+  # eurekaserver:
+  #   image: ostock/eurekaserver:0.0.1-SNAPSHOT
+  #   ports:
+  #     - "8070:8070"
+  #   depends_on:
+  #     database:
+  #       condition: service_healthy
+  #     configserver:
+  #       condition: service_started  
+  #   networks:
+  #     backend:
+  #       aliases:
+  #         - "eurekaserver"
+  eurekaserver1:
     image: ostock/eurekaserver:0.0.1-SNAPSHOT
     ports:
       - "8070:8070"
+    environment:
+      SPRING_PROFILES_ACTIVE: "peer1"
+      EUREKA_INSTANCE_HOSTNAME: "eureka-peer1"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eureka-peer1:8070/eureka/,http://eureka-peer2:8070/eureka/,http://eureka-peer3:8070/eureka/"
+      CONFIGSERVER_URI: "http://configserver:8071"
     depends_on:
       database:
         condition: service_healthy
@@ -42,7 +60,43 @@ services:
     networks:
       backend:
         aliases:
-          - "eurekaserver"
+          - "eureka-peer1"
+  eurekaserver2:
+    image: ostock/eurekaserver:0.0.1-SNAPSHOT
+    ports:
+      - "8069:8070"
+    environment:
+      SPRING_PROFILES_ACTIVE: "peer2"
+      EUREKA_INSTANCE_HOSTNAME: "eureka-peer2"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eureka-peer1:8070/eureka/,http://eureka-peer2:8070/eureka/,http://eureka-peer3:8070/eureka/"
+      CONFIGSERVER_URI: "http://configserver:8071"
+    depends_on:
+      database:
+        condition: service_healthy
+      configserver:
+        condition: service_started  
+    networks:
+      backend:
+        aliases:
+          - "eureka-peer2"
+  eurekaserver3:
+    image: ostock/eurekaserver:0.0.1-SNAPSHOT
+    ports:
+      - "8068:8070"
+    environment:
+      SPRING_PROFILES_ACTIVE: "peer3"
+      EUREKA_INSTANCE_HOSTNAME: "eureka-peer3"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eureka-peer1:8070/eureka/,http://eureka-peer2:8070/eureka/,http://eureka-peer3:8070/eureka/"
+      CONFIGSERVER_URI: "http://configserver:8071"
+    depends_on:
+      database:
+        condition: service_healthy
+      configserver:
+        condition: service_started  
+    networks:
+      backend:
+        aliases:
+          - "eureka-peer3"
   licensingservice:
     image: ostock/licensing-service:0.0.3-SNAPSHOT
     environment:
@@ -51,10 +105,13 @@ services:
       CONFIGSERVER_PORT:   "8071"
       DATABASESERVER_PORT: "5432"
       ENCRYPT_KEY:       "IMSYMMETRIC"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eureka-peer1:8070/eureka/,http://eureka-peer2:8070/eureka/,http://eureka-peer3:8070/eureka/"
     depends_on:
       database:
         condition: service_healthy
       configserver:
+        condition: service_started
+      eurekaserver1:
         condition: service_started
     ports:
       - "8080:8080"
@@ -68,10 +125,13 @@ services:
       CONFIGSERVER_PORT:   "8071"
       DATABASESERVER_PORT: "5432"
       ENCRYPT_KEY:       "IMSYMMETRIC"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eureka-peer1:8070/eureka/,http://eureka-peer2:8070/eureka/,http://eureka-peer3:8070/eureka/"
     depends_on:
       database:
         condition: service_healthy
       configserver:
+        condition: service_started
+      eurekaserver1:
         condition: service_started
     ports:
       - "8081:8081"

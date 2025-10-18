@@ -1,0 +1,13 @@
+Starting Application:
+1. Open a terminal in the root directory of the project and run the following:
+```
+mvn clean package -DskipTests
+cd docker/
+docker compose build
+docker compose up -d
+```
+
+
+Using the requests:
+1. Import the attached JSON file "FeuerbornBenjamin_Assignment5_PostmanCollection.json" to POSTMAN.
+2. Click the run button to run the selected request.

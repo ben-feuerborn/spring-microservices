@@ -1,0 +1,14 @@
+Starting Application:
+1. Open a terminal in the root directory of the project and run `mvn spring-boot:run`
+
+Viewing Database:
+1. With program running, got to http://localhost:8080/h2-console/
+2. In the login screen for the h2-console, ensure the following fields are filled with the following:
+	Driver Class: `org.h2.Driver`
+	JDBC URL: `jdbc:h2:mem:testdb`
+	User Name: `sa`
+3. You can view the up to date by running `SELECT * FROM LICENSE` in the console and clicking run (NOTE: the database has no entries to begin with so a PUT or a POST must be made to view and entries)
+
+Using the requests:
+1. Import the attached JSON file "FeuerbornBenjamin_Assignment3_PostmanCollection.json" to POSTMAN.
+2. Click the run button to run the selected request.
