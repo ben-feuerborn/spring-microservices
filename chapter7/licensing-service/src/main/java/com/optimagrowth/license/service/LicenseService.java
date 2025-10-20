@@ -114,10 +114,17 @@ public class LicenseService {
 
 	}
 
-	@CircuitBreaker(name = "licenseService", fallbackMethod = "buildFallbackLicenseList")
-	@RateLimiter(name = "licenseService", fallbackMethod = "buildFallbackLicenseList")
-	@Retry(name = "retryLicenseService", fallbackMethod = "buildFallbackLicenseList")
-	@Bulkhead(name = "bulkheadLicenseService", type= Type.THREADPOOL, fallbackMethod = "buildFallbackLicenseList")
+	// Default fallback procedure
+	// @CircuitBreaker(name = "licenseService", fallbackMethod = "buildFallbackLicenseList")
+	// @RateLimiter(name = "licenseService", fallbackMethod = "buildFallbackLicenseList")
+	// @Retry(name = "retryLicenseService", fallbackMethod = "buildFallbackLicenseList")
+	// @Bulkhead(name = "bulkheadLicenseService", type= Type.THREADPOOL, fallbackMethod = "buildFallbackLicenseList")
+	
+	// Custom fallback procedure
+	@CircuitBreaker(name = "licenseService", fallbackMethod = "customFallbackLicenseList")
+	@RateLimiter(name = "licenseService", fallbackMethod = "customFallbackLicenseList")
+	@Retry(name = "retryLicenseService", fallbackMethod = "customFallbackLicenseList")
+	@Bulkhead(name = "bulkheadLicenseService", type= Type.THREADPOOL, fallbackMethod = "customFallbackLicenseList")
 	public List<License> getLicensesByOrganization(String organizationId) throws TimeoutException {
 		logger.debug("getLicensesByOrganization Correlation id: {}",
 				UserContextHolder.getContext().getCorrelationId());
@@ -133,6 +140,22 @@ public class LicenseService {
 		license.setOrganizationId(organizationId);
 		license.setProductName("Sorry no licensing information currently available");
 		fallbackList.add(license);
+		return fallbackList;
+	}
+
+	// Custom fallback license list for Assignment 7
+	@SuppressWarnings("unused")
+	private List<License> customFallbackLicenseList(String organizationId, Throwable t) {
+		logger.warn("Custom Fallback triggered for ogranizationId: {}. Reason: {}", organizationId, t.toString());
+		
+		List<License> fallbackList = new ArrayList<>();
+		License license = new License();
+		license.setLicenseId("0000000-00-00000");
+		license.setOrganizationId(organizationId);
+		license.setProductName("Sorry no licensing information currently available");
+		license.setComment("This data was returned from the custom fallback method");
+		fallbackList.add(license);
+
 		return fallbackList;
 	}
 

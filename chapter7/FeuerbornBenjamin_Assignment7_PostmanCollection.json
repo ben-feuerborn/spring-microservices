@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "9f3ce067-6d76-4a15-b480-c4503d48fdd9",
+		"name": "Assignment 7 Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43879275"
+	},
+	"item": [
+		{
+			"name": "Test CircuitBreaker and Fallback",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/e6a625cc-718b-48c2-ac76-1dfdff9a531e/license/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"e6a625cc-718b-48c2-ac76-1dfdff9a531e",
+						"license",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actuator Health Service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
